@@ -1,0 +1,35 @@
+﻿@page
+@model NoteBoard.Pages.Notes.IndexModel
+@{
+}
+
+<br>
+<h2>My Notes</h2>
+<a class='btn btn-primary btn-sm' href ='/Notes/NewNote'>New Note </a>
+<table class = "table">
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Note</th>
+     </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listNotes)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.category</td>
+                <td>@item.title</td>
+                <td>@item.note</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href ='/Notes/Edit?id=@item.id'>Edit</a>
+                    <a class='btn btn-primary btn-sm' href ='/Notes/Delete?id=@item.id'>Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    
+</table>
